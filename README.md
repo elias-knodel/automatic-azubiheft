@@ -1,5 +1,5 @@
-# General Template
-This is a general repository template for all projects done by the organization forstudentsbystudents. You can use it if you want. Just be sure to modify the names and emails.
+# Automatic Azubiheft 
+The plan is to get data from WebUntis and something like Jira so you can generate a azubiheft CSV which then will be imported into your azubiheft so you have to do less work yourself.
 
 ---- 
 
@@ -31,15 +31,15 @@ If you want to take part in contribution, like fixing issues and contributing di
 <!-- Variables -->
 [github-team]: https://github.com/forstudentsbystudents
 
-[github-license]: https://github.com/forstudentsbystudents/general-template/blob/master/LICENSE
-[github-contribute]: https://github.com/forstudentsbystudents/general-template/blob/master/CONTRIBUTING.md
-[github-codeofconduct]: https://github.com/forstudentsbystudents/general-template/blob/master/CODE_OF_CONDUCT.md
-[github-issues]: https://github.com/forstudentsbystudents/general-template/issues
-[github-pulls]: https://github.com/forstudentsbystudents/general-template/pulls
-[github-security]: https://github.com/forstudentsbystudents/general-template/blob/master/SECURITY.md
+[github-license]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/LICENSE
+[github-contribute]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/CONTRIBUTING.md
+[github-codeofconduct]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/CODE_OF_CONDUCT.md
+[github-issues]: https://github.com/forstudentsbystudents/automatic-azubiheft/issues
+[github-pulls]: https://github.com/forstudentsbystudents/automatic-azubiheft/pulls
+[github-security]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/SECURITY.md
 
-[commit-info]: https://img.shields.io/github/last-commit/forstudentsbystudents/general-template?style=flat-square
+[commit-info]: https://img.shields.io/github/last-commit/forstudentsbystudents/automatic-azubiheft?style=flat-square
 
-[contributors-info]: https://img.shields.io/github/contributors/forstudentsbystudents/general-template?style=flat-square
+[contributors-info]: https://img.shields.io/github/contributors/forstudentsbystudents/automatic-azubiheft?style=flat-square
 
-[reposize-info]: https://img.shields.io/github/repo-size/forstudentsbystudents/general-template?style=flat-square
+[reposize-info]: https://img.shields.io/github/repo-size/forstudentsbystudents/automatic-azubiheft?style=flat-square
