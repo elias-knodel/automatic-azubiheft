@@ -1,6 +1,12 @@
 # Automatic Azubiheft 
 The plan is to get data from WebUntis and something like Jira so you can generate a azubiheft CSV which then will be imported into your azubiheft so you have to do less work yourself.
 
+### Feature checklist:
+
+- [ ] Get data from WebUntis
+- [ ] Sort data (Day, Class and Topic)
+- [ ] Export Data in CSV
+
 ---- 
 
   ![commit-info][commit-info]
