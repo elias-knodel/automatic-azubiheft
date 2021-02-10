@@ -2,3 +2,9 @@
 
 .vscode/
 .idea/
+
+# Folders
+node_modules/
+dist/
+exports/*
+!exports/keep
