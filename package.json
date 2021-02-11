@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "devDependencies": {
+    "@types/node": "^14.14.25",
     "eslint": "^7.19.0",
     "typescript": "^4.1.4"
   },
@@ -22,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/forstudentsbystudents/automatic-azubiheft/issues"
   },
-  "homepage": "https://github.com/forstudentsbystudents/automatic-azubiheft#readme"
+  "homepage": "https://github.com/forstudentsbystudents/automatic-azubiheft#readme",
+  "dependencies": {
+    "webuntis": "^1.14.0"
+  }
 }

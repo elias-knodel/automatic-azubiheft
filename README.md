@@ -15,12 +15,39 @@ The plan is to get data from WebUntis and something like Jira so you can generat
 
 ----
 
-## Getting started:
-tbd
-
 ## Contributing
 
 If you want to take part in contribution, like fixing issues and contributing directly to the code base, plase visit the [How to Contribute][github-contribute] document.
+
+## Requirements:
+- [pnpm](https://pnpm.js.org/en/installation)
+
+## Getting started:
+1. Clone the repository
+```bash
+git clone https://github.com/lazybytez/tea.git
+```
+
+2. Install needed packages (we use pnpm as a package manager)
+```bash
+pnpm install
+```
+
+## Commands for developing:
+- Compiles on file-save for development
+```
+pnpm run autobuild
+```
+
+- Compiles and minifies for production
+```
+pnpm run build
+```
+
+- Lints and fixes files
+```
+pnpm run lint
+```
 
 ## Useful links:
 [License][github-license] - 
