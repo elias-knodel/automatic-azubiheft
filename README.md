@@ -25,7 +25,7 @@ If you want to take part in contribution, like fixing issues and contributing di
 ## Getting started:
 1. Clone the repository
 ```bash
-git clone https://github.com/lazybytez/tea.git
+git clone https://github.com/forstudentsbystudents/automatic-azubiheft.git
 ```
 
 2. Install needed packages (we use pnpm as a package manager)
