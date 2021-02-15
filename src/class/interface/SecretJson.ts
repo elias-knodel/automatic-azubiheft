@@ -1,4 +1,4 @@
-export interface SecretJson {
+export default interface SecretJson {
     school: string, 
     user: string, 
     password: string, 
