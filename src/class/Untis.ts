@@ -52,21 +52,20 @@ export default class Untis {
                             if(!jsonData.day[e.date]) jsonData.day[e.date] = {};
                             if(!jsonData.day[e.date][e.id]) jsonData.day[e.date][e.id] = e;
                             if(!jsonData.day[e.date][e.id]["topic"]) {
-                                const topic: string = <string><unknown>untis.getLessonTopic(
+                                untis.getLessonTopic(
                                     e.date, // e.date
                                     e.startTime, // e.startTime
                                     e.endTime, // e.endTime
                                     e.id // e.id
-                                );
-                                console.log(topic);
-                                // jsonData.day[e.date][e.id]["topic"] = topic;
+                                ).then(topic => {
+                                    jsonData.day[e.date][e.id]["topic"] = topic;
+                                });
                             }
                         }
                     }
                 });
 
                 jsonFile.write(jsonData);
-
             })
             .catch(error => {
                 console.log("Sadly webuntis only allows viewing one year at the time.\n" +
