@@ -6,7 +6,7 @@ import { WebUntisCustom } from "./WebUntisCustom";
 export default class Untis {
 
     private _customTimespan: boolean = false;
-    
+
     public get customTimespan(): boolean {
         return this._customTimespan;
     }
@@ -33,7 +33,7 @@ export default class Untis {
                 return untis.getLatestSchoolyear();
             })
             .then(timetable => {
-                if(this.customTimespan) {
+                if (this.customTimespan) {
                     const date = this.getDate();
                     timetable = date;
                 }
@@ -44,40 +44,37 @@ export default class Untis {
                 const jsonFile = new Json(path.join(__dirname + "/../../exports/cache.json"));
                 const jsonData = jsonFile.read();
 
-                if(!jsonData.day) jsonData.day = {};
+                if (!jsonData.day) jsonData.day = {};
 
                 timetable.forEach(e => {
-                    if(e.code != "cancelled") {
-                        if(e.date && e.date <= <number><unknown>untis.convertDateToUntis(new Date)) {
-                            if(!jsonData.day[e.date]) jsonData.day[e.date] = {};
-                            if(!jsonData.day[e.date][e.id]) jsonData.day[e.date][e.id] = e;
-                            if(!jsonData.day[e.date][e.id]["topic"]) {
-                                untis.getLessonTopic(
+                    if (e.code != "cancelled") {
+                        if (e.date && e.date <= <number><unknown>untis.convertDateToUntis(new Date)) {
+                            if (!jsonData.day[e.date]) jsonData.day[e.date] = {};
+                            if (!jsonData.day[e.date][e.id]) jsonData.day[e.date][e.id] = e;
+                            if (!jsonData.day[e.date][e.id]["topic"]) {
+                                jsonData.day[e.date][e.id]["topic"] = untis.getLessonTopic(
                                     e.date, // e.date
                                     e.startTime, // e.startTime
                                     e.endTime, // e.endTime
                                     e.id // e.id
-                                ).then(topic => {
-                                    jsonData.day[e.date][e.id]["topic"] = topic;
-                                });
+                                );
                             }
                         }
                     }
                 });
-
-                jsonFile.write(jsonData);
+                jsonFile.writeSync(jsonData);
             })
             .catch(error => {
                 console.log("Sadly webuntis only allows viewing one year at the time.\n" +
                 "You cannot overlap dates from different schoolyears!");
                 return error;
-            });        
+            });
     }
 
     public getDate() {
         const startDate = new Date("2020-09-13T22:00:00.000Z");
         const endDate = new Date("2021-02-12T22:00:00.000Z");
-        
+
         const date = {
             name: "custom",
             id: 1,
