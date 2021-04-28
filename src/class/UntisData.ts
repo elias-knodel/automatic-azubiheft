@@ -3,7 +3,7 @@ import Json from "./Json";
 import path from "path";
 import { WebUntisCustom } from "./WebUntisCustom";
 
-export default class Untis {
+export default class UntisData {
 
     private _customTimespan: boolean = false;
 
@@ -71,7 +71,7 @@ export default class Untis {
             .catch(error => {
                 console.log("Sadly webuntis only allows viewing one year at the time.\n" +
                 "You cannot overlap dates from different schoolyears!");
-                return error;
+                throw new Error(error);
             });
     }
 

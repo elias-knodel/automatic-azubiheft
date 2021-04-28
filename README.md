@@ -1,6 +1,9 @@
 # Automatic Azubiheft 
 The plan is to get data from WebUntis and something like Jira so you can generate a azubiheft CSV which then will be imported into your azubiheft so you have to do less work yourself.
 
+## Warning:
+This is still in heavy development, don't expect much yet!
+
 ### Feature checklist:
 
 - [x] Get data from WebUntis
