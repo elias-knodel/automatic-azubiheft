@@ -1,4 +1,4 @@
-export interface SortedData {
+export interface CsvData {
     [key: string]: SortedDataObject
 }
 

@@ -44,24 +44,28 @@ export default class Untis {
                 const jsonFile = new Json(path.join(__dirname + "/../../exports/cache.json"));
                 const jsonData = jsonFile.read();
 
-                if (!jsonData.day) jsonData.day = {};
-
                 timetable.forEach(e => {
                     if (e.code != "cancelled") {
                         if (e.date && e.date <= <number><unknown>untis.convertDateToUntis(new Date)) {
-                            if (!jsonData.day[e.date]) jsonData.day[e.date] = {};
-                            if (!jsonData.day[e.date][e.id]) jsonData.day[e.date][e.id] = e;
-                            if (!jsonData.day[e.date][e.id]["topic"]) {
-                                jsonData.day[e.date][e.id]["topic"] = untis.getLessonTopic(
+                            if (!jsonData[e.date]) jsonData[e.date] = {};
+                            if (!jsonData[e.date][e.id]) jsonData[e.date][e.id] = e;
+                            if (!jsonData[e.date][e.id]["lessonTopic"]) {
+                                untis.getLessonTopic(
                                     e.date, // e.date
                                     e.startTime, // e.startTime
                                     e.endTime, // e.endTime
                                     e.id // e.id
-                                );
+                                ).then(res => {
+                                    jsonData[e.date][e.id]["lessonTopic"] = <string>res;
+                                    jsonFile.writeSync(jsonData);
+                                }).catch(err => {
+                                    console.log(err);
+                                });
                             }
                         }
                     }
                 });
+
                 jsonFile.writeSync(jsonData);
             })
             .catch(error => {
