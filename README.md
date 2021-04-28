@@ -3,7 +3,7 @@ The plan is to get data from WebUntis and something like Jira so you can generat
 
 ### Feature checklist:
 
-- [ ] Get data from WebUntis
+- [x] Get data from WebUntis
 - [ ] Sort data (Day, Class and Topic)
 - [ ] Export Data in CSV
 
