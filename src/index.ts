@@ -1,8 +1,9 @@
 import path from "path";
 import Json from "./class/Json";
-import Untis from "./class/Untis";
+import UntisData from "./class/UntisData";
 import SecretJson from "./class/interface/SecretJson";
 import Csv from "./class/Csv";
+import Cache from "./class/CacheChecker";
 
 /**
  * Gets the credentials from the secret.json
@@ -11,21 +12,22 @@ const jsonFile = new Json(path.join(__dirname + "/../json/secret.json"));
 const credentials: SecretJson = jsonFile.read();
 
 /**
- * Generates a json file with webuntis data
- * Need to be set on true on the FIRST time
+ * Check when last updated date and update if necessary
  */
-const requestData = false;
-if (requestData) {
-    const untisData = new Untis(credentials);
-    untisData.customTimespan = false;
+const cacheChecker = new Cache();
+const isValid: boolean = cacheChecker.check();
+
+/**
+ * Generates a cache json file with webuntis data
+ */
+if (isValid) {
+    new UntisData(credentials);
 }
 
 /**
- * Generates the CSV
- * Set it to false on the first time because there is no promise yet
+ * Generates the CSV with the untis cache
  */
-const generateCsv = true;
-if (generateCsv) {
+if (!isValid) {
     const jsonCacheFile = new Json(path.join(__dirname + "/../exports/cache.json"));
     const jsonCacheData: SecretJson = jsonCacheFile.read();
     const csv = new Csv();

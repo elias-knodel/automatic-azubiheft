@@ -47,10 +47,12 @@ export class WebUntisCustom extends WebUntis {
                 Cookie: this.buildCookiesCustom()
             }
         });
+        const lessonTopicRes: String = response.data.data.blocks[0][0].lessonTopic.text;
         try {
-            if (typeof response.data.data.blocks[0][0].lessonTopic.text !== "string")
+            if (typeof lessonTopicRes !== "string")
                 console.log("Server returned invalid data.");
-            return response.data.data.blocks[0][0].lessonTopic.text;
+            // remove linebreaks with regex and replace
+            return lessonTopicRes.replace(/(\r\n|\n|\r)/gm, " ");
         } catch (err) {
             console.log("Server returned no data.");
         }
