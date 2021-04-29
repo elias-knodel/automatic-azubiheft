@@ -2,7 +2,7 @@ import path from "path";
 import Json from "./class/Json";
 import UntisData from "./class/UntisData";
 import SecretJson from "./class/interface/SecretJson";
-import Csv from "./class/Csv";
+import Output from "./class/Output";
 import Cache from "./class/CacheChecker";
 
 /**
@@ -18,18 +18,18 @@ const cacheChecker = new Cache();
 const isValid: boolean = cacheChecker.check();
 
 /**
- * Generates a cache json file with webuntis data
+ * Generates a cache file with webuntis data when the old one is invalid
  */
-if (isValid) {
+if (!isValid) {
     new UntisData(credentials);
 }
 
 /**
- * Generates the CSV with the untis cache
+ * Generates the CSV with the untis cache if it is valid
  */
-if (!isValid) {
+if (isValid) {
     const jsonCacheFile = new Json(path.join(__dirname + "/../exports/cache.json"));
     const jsonCacheData: SecretJson = jsonCacheFile.read();
-    const csv = new Csv();
+    const csv = new Output();
     csv.create(jsonCacheData);
 }

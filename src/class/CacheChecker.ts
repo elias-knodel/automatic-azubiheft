@@ -16,9 +16,9 @@ export default class Cache {
 
             jsonFile.writeSync(jsonData);
 
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
 }

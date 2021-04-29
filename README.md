@@ -1,14 +1,15 @@
-# Automatic Azubiheft 
-The plan is to get data from WebUntis and something like Jira so you can generate a azubiheft CSV which then will be imported into your azubiheft so you have to do less work yourself.
+# WebUntis LessonTopic Generator 
+The plan is to get the lesson topic data from WebUntis so you can generate a file which then can be copy pasted into your azubiheft so you have less work to do yourself.
 
 ## Warning:
-This is still in heavy development, don't expect much yet!
+This is still in heavy development and also just a side project so don't expect 
+much code quality or functionality and customizability yet.
 
 ### Feature checklist:
 
 - [x] Get data from WebUntis
-- [ ] Sort data (Day, Class and Topic)
-- [ ] Export Data in CSV
+- [x] Sort data (Day, Class and Topic)
+- [ ] Make data customizable
 
 ---- 
 
@@ -28,12 +29,12 @@ If you want to take part in contribution, like fixing issues and contributing di
 ## Getting started:
 1. Clone the repository
 ```bash
-git clone https://github.com/forstudentsbystudents/automatic-azubiheft.git
+git clone https://github.com/elias-knodel/webuntis-lessontopic.git
 ```
 
 2. Go in the folder
 ```bash
-cd automatic-azubiheft
+cd webuntis-lessontopic
 ```
 
 3. Setup your authentication credentials for WebUntis
@@ -41,7 +42,7 @@ cd automatic-azubiheft
 cp json/secret.example.json json/secret.json
 ```
 (ONLY FILL THE NOW GENERATED `secret.json` WITH YOUR CREDENTIALS! 
-THIS FILE IS IGNORED BY GIT AND WILL NOT BE DETECTED!)
+THIS FILE IS IGNORED BY GIT AND WILL NOT BE PUSHED!)
 
 4. Install needed packages (we use pnpm as a package manager)
 ```bash
@@ -74,20 +75,20 @@ pnpm run lint
 
 <hr>  
 
-###### Copyright (c) [ForStudentsByStudents][github-team]. All rights reserved | Licensed under the MIT license. | 2020 - today
+###### Copyright (c) [Elias-Knodel][github-team]. All rights reserved | Licensed under the MIT license. | 2021
 
 <!-- Variables -->
-[github-team]: https://github.com/forstudentsbystudents
+[github-team]: https://github.com/elias-knodel
 
-[github-license]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/LICENSE
-[github-contribute]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/CONTRIBUTING.md
-[github-codeofconduct]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/CODE_OF_CONDUCT.md
-[github-issues]: https://github.com/forstudentsbystudents/automatic-azubiheft/issues
-[github-pulls]: https://github.com/forstudentsbystudents/automatic-azubiheft/pulls
-[github-security]: https://github.com/forstudentsbystudents/automatic-azubiheft/blob/master/SECURITY.md
+[github-license]: https://github.com/elias-knodel/webuntis-lessontopic/blob/master/LICENSE
+[github-contribute]: https://github.com/elias-knodel/webuntis-lessontopic/blob/master/CONTRIBUTING.md
+[github-codeofconduct]: https://github.com/elias-knodel/webuntis-lessontopic/blob/master/CODE_OF_CONDUCT.md
+[github-issues]: https://github.com/elias-knodel/webuntis-lessontopic/issues
+[github-pulls]: https://github.com/elias-knodel/webuntis-lessontopic/pulls
+[github-security]: https://github.com/elias-knodel/webuntis-lessontopic/blob/master/SECURITY.md
 
-[commit-info]: https://img.shields.io/github/last-commit/forstudentsbystudents/automatic-azubiheft?style=flat-square
+[commit-info]: https://img.shields.io/github/last-commit/elias-knodel/webuntis-lessontopic?style=flat-square
 
-[contributors-info]: https://img.shields.io/github/contributors/forstudentsbystudents/automatic-azubiheft?style=flat-square
+[contributors-info]: https://img.shields.io/github/contributors/elias-knodel/webuntis-lessontopic?style=flat-square
 
-[reposize-info]: https://img.shields.io/github/repo-size/forstudentsbystudents/automatic-azubiheft?style=flat-square
+[reposize-info]: https://img.shields.io/github/repo-size/elias-knodel/webuntis-lessontopic?style=flat-square
