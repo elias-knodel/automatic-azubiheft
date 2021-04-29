@@ -5,23 +5,23 @@ import { WebUntisCustom } from "./WebUntisCustom";
 
 export default class UntisData {
 
-    private _startYear: boolean = false;
+    private _startYear: number = 0;
 
-    public get startYear(): boolean {
+    public get startYear(): number {
         return this._startYear;
     }
 
-    public set startYear(value: boolean) {
+    public set startYear(value: number) {
         this._startYear = value;
     }
 
-    private _endYear: boolean = false;
+    private _endYear: number = 0;
 
-    public get endYear(): boolean {
+    public get endYear(): number {
         return this._endYear;
     }
 
-    public set endYear(value: boolean) {
+    public set endYear(value: number) {
         this._endYear = value;
     }
 
@@ -40,7 +40,7 @@ export default class UntisData {
         untis
             .login()
             .then(() => {
-                return untis.getSchoolyears(2019, 2020);
+                return untis.getSchoolyears(this._startYear, this.endYear);
             })
             .then(schoolyears => {
 
