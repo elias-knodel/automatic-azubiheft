@@ -5,14 +5,24 @@ import { WebUntisCustom } from "./WebUntisCustom";
 
 export default class UntisData {
 
-    private _customTimespan: boolean = false;
+    private _startYear: boolean = false;
 
-    public get customTimespan(): boolean {
-        return this._customTimespan;
+    public get startYear(): boolean {
+        return this._startYear;
     }
 
-    public set customTimespan(value: boolean) {
-        this._customTimespan = value;
+    public set startYear(value: boolean) {
+        this._startYear = value;
+    }
+
+    private _endYear: boolean = false;
+
+    public get endYear(): boolean {
+        return this._endYear;
+    }
+
+    public set endYear(value: boolean) {
+        this._endYear = value;
     }
 
     constructor(credentials: SecretJson) {
@@ -30,21 +40,45 @@ export default class UntisData {
         untis
             .login()
             .then(() => {
-                return untis.getLatestSchoolyear();
+                return untis.getSchoolyears(2019, 2020);
             })
-            .then(timetable => {
-                if (this.customTimespan) {
-                    const date = this.getDate();
-                    timetable = date;
-                }
+            .then(schoolyears => {
 
-                return untis.getOwnTimetableForRange(timetable.startDate, timetable.endDate);
+                // @ts-ignore
+                const timetables = [];
+                // @ts-ignore
+                const promises = [];
+
+                schoolyears.forEach(e => {
+                    promises.push(
+                        untis.getOwnTimetableForRange(e.startDate, e.endDate)
+                            .then( lessons => {
+                                lessons.forEach(lesson =>{
+                                    // @ts-ignore
+                                    timetables.push(lesson);
+                                });
+                            })
+                            .catch( err => {
+                                console.log(err);
+                            })
+                    );
+                });
+
+                // @ts-ignore
+                return Promise.all(promises)
+                    .then( () => {
+                        // @ts-ignore
+                        console.log(timetables);
+                        // @ts-ignore
+                        return timetables;
+                    });
             })
-            .then(timetable => {
+            .then(timetables => {
+                console.log(timetables);
                 const jsonFile = new Json(path.join(__dirname + "/../../exports/cache.json"));
                 const jsonData = jsonFile.read();
 
-                timetable.forEach(e => {
+                timetables.forEach(e => {
                     if (e.code != "cancelled") {
                         if (e.date && e.date <= <number><unknown>untis.convertDateToUntis(new Date)) {
                             if (!jsonData[e.date]) jsonData[e.date] = {};
@@ -69,23 +103,7 @@ export default class UntisData {
                 jsonFile.writeSync(jsonData);
             })
             .catch(error => {
-                console.log("Sadly webuntis only allows viewing one year at the time.\n" +
-                "You cannot overlap dates from different schoolyears!");
                 throw new Error(error);
             });
-    }
-
-    public getDate() {
-        const startDate = new Date("2020-09-13T22:00:00.000Z");
-        const endDate = new Date("2021-02-12T22:00:00.000Z");
-
-        const date = {
-            name: "custom",
-            id: 1,
-            startDate,
-            endDate
-        };
-
-        return date;
     }
 }
