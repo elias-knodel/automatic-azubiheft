@@ -21,7 +21,7 @@ much code quality or functionality and customizability yet.
 
 ## Contributing
 
-If you want to take part in contribution, like fixing issues and contributing directly to the code base, plase visit the [How to Contribute][github-contribute] document.
+If you want to take part in contribution, like fixing issues and contributing directly to the code base, please visit the [How to Contribute][github-contribute] document.
 
 ## Requirements:
 - [pnpm](https://pnpm.js.org/en/installation)
