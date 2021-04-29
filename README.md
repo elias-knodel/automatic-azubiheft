@@ -9,7 +9,7 @@ much code quality or functionality and customizability yet.
 
 - [x] Get data from WebUntis
 - [x] Sort data (Day, Class and Topic)
-- [ ] Make data customizable
+- [x] Make data customizable (Schoolyear)
 - [ ] Remove *ts-ignore* and *ts-nocheck* in code
 
 ---- 
