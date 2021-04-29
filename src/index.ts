@@ -21,7 +21,9 @@ const isValid: boolean = cacheChecker.check();
  * Generates a cache file with webuntis data when the old one is invalid
  */
 if (!isValid) {
-    new UntisData(credentials);
+    const untisData = new UntisData(credentials);
+    untisData.startYear = 2019;
+    untisData.endYear = 2020;
 }
 
 /**
@@ -30,6 +32,7 @@ if (!isValid) {
 if (isValid) {
     const jsonCacheFile = new Json(path.join(__dirname + "/../exports/cache.json"));
     const jsonCacheData: SecretJson = jsonCacheFile.read();
-    const csv = new Output();
-    csv.create(jsonCacheData);
+    const output = new Output();
+    output.reverseDate = true;
+    output.create(jsonCacheData);
 }
