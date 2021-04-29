@@ -2,7 +2,18 @@
 import { writeFileSync } from "fs";
 import { convertUntisDate } from "webuntis";
 
-export default class Csv {
+export default class Output {
+
+    private _reverseDate: boolean = true;
+
+    public get reverseDate(): boolean {
+        return this._reverseDate;
+    }
+
+    public set reverseDate(reverseDate: boolean) {
+        this._reverseDate = reverseDate;
+    }
+
     constructor() {
     }
 
@@ -10,7 +21,6 @@ export default class Csv {
         const lessons: object[] = [];
         for(const k in data) {
             for(const j in data[k]) {
-                lessons.sort(this.compare);
                 lessons.push(data[k][j]);
             }
         }
@@ -44,18 +54,21 @@ export default class Csv {
         );
     }
 
-    private compare(a: unknown, b: unknown) {
+    private compare = (a: unknown, b: unknown) => {
         const dateA = a.date;
         const dateB = b.date;
 
         let comparison = 0;
-        // if date is bigger than date before
-        if (dateA < dateB) {
+        if (dateA > dateB) {
             comparison = 1;
-        // if date is smaller than date before
-        } else if (dateA > dateB) {
+        } else if (dateA < dateB) {
             comparison = -1;
         }
+
+        // if (this.reverseDate) {
+        //     comparison = comparison * -1;
+        // }
+
         return comparison;
     }
 }
