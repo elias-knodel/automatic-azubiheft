@@ -32,7 +32,7 @@ export default class Output {
     public create(data: object) {
         const lessons = this.getLessons(data);
 
-        const azubiheftTxt = path.join(__dirname + "/../../exports/azubiheft.txt");
+        const azubiheftTxt = path.join(__dirname + "/../../exports/lessontopics.txt");
         let text = "Date:\nLesson: Topic\n";
         let lessonBefore = "";
         let dateF = "";
