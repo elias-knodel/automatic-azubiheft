@@ -21,6 +21,7 @@ export default class Output {
         const lessons: object[] = [];
         for(const k in data) {
             for(const j in data[k]) {
+                lessons.sort(this.compare);
                 lessons.push(data[k][j]);
             }
         }
@@ -37,15 +38,17 @@ export default class Output {
 
         lessons.forEach(e => {
             dateF = new Date(convertUntisDate(e.date));
-            if (e.date != lessonBefore.date) {
-                text += "\n";
-            }
-            if (lessonBefore.lessonTopic != e.lessonTopic) {
-                if (e.lessonTopic && e.su[0]) {
-                    text += dateF.toLocaleDateString("de-DE") + ", " + e.su[0].name + ": " + e.lessonTopic + "\n";
+            // if (e.date != lessonBefore.date) {
+            //     text += "\n";
+            // }
+            if (e.lessonTopic) {
+                if (lessonBefore.lessonTopic != e.lessonTopic) {
+                    if (e.lessonTopic && e.su[0]) {
+                        text += dateF.toLocaleDateString("de-DE") + ", " + e.su[0].name + ": " + e.lessonTopic + "\n";
+                    }
                 }
+                lessonBefore = e;
             }
-            lessonBefore = e;
         });
 
         writeFileSync(
@@ -58,17 +61,17 @@ export default class Output {
         const dateA = a.date;
         const dateB = b.date;
 
-        let comparison = 0;
-        if (dateA > dateB) {
-            comparison = 1;
-        } else if (dateA < dateB) {
-            comparison = -1;
-        }
-
-        // if (this.reverseDate) {
-        //     comparison = comparison * -1;
+        // let comparison = 0;
+        // if (dateA > dateB) {
+        //     comparison = 1;
+        // } else if (dateA < dateB) {
+        //     comparison = -1;
         // }
 
-        return comparison;
+        if (this.reverseDate) {
+            return dateA - dateB;
+        }
+
+        return dateB - dateA;
     }
 }
