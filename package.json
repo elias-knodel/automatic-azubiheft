@@ -1,24 +1,24 @@
 {
-  "name": "automatic-azubiheft",
-  "description": "The plan is to get data from WebUntis and something like Jira so you can generate a azubiheft CSV which then will be imported into your azubiheft so you have to do less work yourself.",
+  "name": "webuntis-lessontopic",
+  "description": "The plan is to get data from WebUntis and something like Jira so you can generate an azubiheft as far es possible (as little work as possible).",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "test": "node ./dist/index.js",
+    "start": "node ./dist/index.js",
     "autobuild": "tsc -p tsconfig.json --watch",
     "build": "tsc -p tsconfig.json",
     "lint": "eslint src/**/*.ts --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/forstudentsbystudents/automatic-azubiheft.git"
+    "url": "git+https://github.com/elias-knodel/webuntis-lessontopic.git"
   },
-  "author": "ForStudentsByStudents",
+  "author": "elias-knodel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/forstudentsbystudents/automatic-azubiheft/issues"
+    "url": "https://github.com/elias-knodel/webuntis-lessontopic/issues"
   },
-  "homepage": "https://github.com/forstudentsbystudents/automatic-azubiheft#readme",
+  "homepage": "https://github.com/elias-knodel/webuntis-lessontopic#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "date-fns": "^2.21.1",

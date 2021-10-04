@@ -2,8 +2,10 @@
 The plan is to get the lesson topic data from WebUntis so you can generate a file which then can be copy pasted into your azubiheft so you have less work to do yourself.
 
 ## Warning:
-This is still in heavy development and also just a side project so don't expect 
-much code quality or functionality and customizability yet.
+This is still in not very much optimized. It's also just a side project so don't expect 
+much code quality or functionality and.
+
+**BUT** you are welcome to contribute and help me make it better!
 
 ### Feature checklist:
 
@@ -48,6 +50,11 @@ THIS FILE IS IGNORED BY GIT AND WILL NOT BE PUSHED!)
 4. Install needed packages (we use pnpm as a package manager)
 ```bash
 pnpm install
+```
+
+5. Execute the programm 2 times to generate a valid text file 
+```bash
+pnpm run start
 ```
 
 ## Commands for developing:

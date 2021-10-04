@@ -43,7 +43,7 @@ export class WebUntisCustom extends WebUntis {
             url: "/WebUntis/api/public/period/info?date=" + date +
                 "&starttime=" + startTime +
                 "&endtime=" + endTime +
-                "&elemid=10487" +
+                "&elemid=10487" + //TODO: Get the ElemID dynamic. This is the untis person id and is always different.
                 "&elemtype=5" +
                 "&ttFmtId=1" +
                 "&selectedPeriodId=" + selectedPeriodId,

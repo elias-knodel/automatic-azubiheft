@@ -23,7 +23,7 @@ const isValid: boolean = cacheChecker.check();
 if (!isValid) {
     const untisData = new UntisData(credentials);
     untisData.startYear = 2019;
-    untisData.endYear = 2020;
+    untisData.endYear = 2021;
 }
 
 /**

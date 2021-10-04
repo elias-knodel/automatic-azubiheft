@@ -68,13 +68,10 @@ export default class UntisData {
                 return Promise.all(promises)
                     .then( () => {
                         // @ts-ignore
-                        console.log(timetables);
-                        // @ts-ignore
                         return timetables;
                     });
             })
             .then(timetables => {
-                console.log(timetables);
                 const jsonFile = new Json(path.join(__dirname + "/../../exports/cache.json"));
                 const jsonData = jsonFile.read();
 
